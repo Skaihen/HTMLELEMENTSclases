@@ -4,26 +4,31 @@ use DAW\HTMLElementClass\HTMLElementClass;
 
 final class HTMLElementClassTest extends TestCase{
     public function DP_test_createHTMLElementClass(){
+        $HTMLElementClassNested = new HTMLElementClass("p" ,[], "Esto es un ejemplo", false);
+        $HTMLElementClassNested = $HTMLElementClassNested->getHTML();
         return [
             "TEST P" => [
-                '<p id="ParrafoIntroduccion" class="Normal">PruebaPrueba2</p>',
+                '<p id = "ParrafoIntroduccion" class = "Normal">ParrafoIntroduccionDeprueba</p>',
                 "p",
                 [
                     "id" => "ParrafoIntroduccion",
                     "class" => "Normal"
                 ],
-                "Prueba",
+                [
+                    "ParrafoIntroduccion",
+                    "Deprueba"
+                ],
                 false
             ],
             "TEST NESTED" => [
-                '<div id="Container" class="Centrado rojo" style="position: absolute"><p>Esto es un ejemplo</p></div>',
+                '<div id = "Container" class = "Centrado rojo" style = "position: absolute"><p >Esto es un ejemplo</p></div>',
                 "div",
                 [
                     "id" => "Container",
                     "class" => "Centrado rojo",
                     "style" => "position: absolute"
                 ],
-                [],
+                $HTMLElementClassNested,
                 false,
             ]
         ];
@@ -75,7 +80,7 @@ final class HTMLElementClassTest extends TestCase{
                     "id" => "ParrafoIntroduccion",
                     "class" => "Normal"
                 ],
-                "Prueba",
+                ["Prueba"],
                 false
             ]
         ];

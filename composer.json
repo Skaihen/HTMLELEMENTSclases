@@ -8,14 +8,12 @@
     },
     "autoload": {
         "files": [
-            "src/HTMLElementsClass.php",
-            "src/arrayHTML.php"
+            "src/HTMLElementsClass.php"
         ]
     },
     "autoload-dev": {
         "files": [
-            "src/HTMLElementsClass.php",
-            "src/arrayHTML.php"
+            "src/HTMLElementsClass.php"
         ]
     }
 }

@@ -1,9 +1,7 @@
 <?php
-namespace DAW\HTMLElementsClass;
+namespace DAW\HTMLElementClass;
 
-require "vendor/autoload.php";
-
-class HTMLElement
+class HTMLElementClass
 {
     private string $tagName;
     private array $attributes;
@@ -40,7 +38,7 @@ class HTMLElement
             unset($this->attributes[$attributeName]);
         }
     }
-    public function isSameTag(HTMLElement $HTMLElement): bool{
+    public function isSameTag(HTMLElementClass $HTMLElement): bool{
         return $this->HTMLElement == $HTMLElement->getTagName();
     }
     public function getHTML(): string{

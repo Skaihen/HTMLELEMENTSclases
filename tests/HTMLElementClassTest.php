@@ -1,9 +1,9 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use DAW\HTMLElementsClass\HTMLElement;
+use DAW\HTMLElementClass\HTMLElementClass;
 
 final class HTMLElementClassTest extends TestCase{
-    public function DP_test_createHtmlElement(){
+    public function DP_test_createHTMLElementClass(){
         return [
             "TEST P" => [
                 '<p id="ParrafoIntroduccion" class="Normal">PruebaPrueba2</p>',
@@ -29,11 +29,11 @@ final class HTMLElementClassTest extends TestCase{
         ];
     }
     /**
-    * @dataProvider DP_test_createHtmlElement
+    * @dataProvider DP_test_createHTMLElementClass
     */
-    public function test_createHtmlElement($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $this->assertEquals($esperado, $HTMLElement->getHTML());
+    public function test_createHTMLElementClass($esperado, $tagName, $attributes, $content, $isEmpty){
+        $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $this->assertEquals($esperado, $HTMLElementClass->getHTML());
     }
 
 
@@ -55,15 +55,15 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_getTagName
     */
     public function test_getTagName($esperado, $tagName, $attributes, $content, $isEmpty){
-    $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $this->assertEquals($esperado, $HTMLElement->getTagName());
+    $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $this->assertEquals($esperado, $HTMLElementClass->getTagName());
     }
     /**
     * @dataProvider DP_test_getTagName
     */
     public function test_isEmptyElement($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $this->assertEquals($isEmpty, $HTMLElement->isEmptyElement());
+        $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $this->assertEquals($isEmpty, $HTMLElementClass->isEmptyElement());
     }
 
     public function DP_test_addContent(){
@@ -84,9 +84,9 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_addContent
     */
     public function test_addContent($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $HTMLElement->addContent("Prueba2");
-        $this->assertEquals($esperado, $HTMLElement->getContent());
+        $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $HTMLElementClass->addContent("Prueba2");
+        $this->assertEquals($esperado, $HTMLElementClass->getContent());
 
     }
 
@@ -108,9 +108,9 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_addAttribute
     */
     public function test_addAttribute($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $HTMLElement->addAttribute("Test", "Prueba");
-        $this->assertEquals($esperado, $HTMLElement->getAttributes());
+        $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $HTMLElementClass->addAttribute("Test", "Prueba");
+        $this->assertEquals($esperado, $HTMLElementClass->getAttributes());
     }
 
     public function DP_test_removeAttribute(){
@@ -131,9 +131,9 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_removeAttribute
     */
     public function test_removeAttribute($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-        $HTMLElement->removeAttribute("class");
-        $this->assertEquals($esperado, $HTMLElement->getAttributes());
+        $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+        $HTMLElementClass->removeAttribute("class");
+        $this->assertEquals($esperado, $HTMLElementClass->getAttributes());
     }
 
     public function DP_test_isSameTag(){
@@ -154,9 +154,9 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_isSameTag
     */
     public function test_isSameTag($esperado, $tagName, $attributes, $content, $isEmpty){
-    $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
-    $HTMLElement2 = new HTMLElement($esperado, $attributes, $content, $isEmpty);
-        $this->assertTrue($HTMLElement->isSameTag($HTMLElement2));
+    $HTMLElementClass = new HTMLElementClass($tagName, $attributes, $content, $isEmpty);
+    $HTMLElementClass2 = new HTMLElementClass($esperado, $attributes, $content, $isEmpty);
+        $this->assertTrue($HTMLElementClass->isSameTag($HTMLElementClass2));
     }
 }
 ?>

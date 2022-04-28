@@ -7,13 +7,15 @@
         "phpunit/phpunit": "^9.5"
     },
     "autoload": {
-        "files": [
-            "src/HTMLElementsClass.php"
-        ]
+        "psr-4": {
+            "PHPUnit\\": "vendor/phpunit/phpunit/src/",
+            "DAW\\HTMLElementClass\\": "src/"
+        }
     },
     "autoload-dev": {
-        "files": [
-            "src/HTMLElementsClass.php"
-        ]
+        "psr-4": {
+            "PHPUnit\\": "vendor/phpunit/phpunit/src/",
+            "DAW\\HTMLElementClass\\": "src/"
+        }
     }
 }

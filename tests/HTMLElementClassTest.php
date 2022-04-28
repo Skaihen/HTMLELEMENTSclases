@@ -32,7 +32,7 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_createHtmlElement
     */
     public function test_createHtmlElement($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new \DAW\HTMLElementsClass\HTMLElement($tagName, $attributes, $content, $isEmpty);
+        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
         $this->assertEquals($esperado, $HTMLElement->getHTML());
     }
 
@@ -55,14 +55,14 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_getTagName
     */
     public function test_getTagName($esperado, $tagName, $attributes, $content, $isEmpty){
-    $HTMLElement = new \DAW\HTMLElementsClass\HTMLElement($tagName, $attributes, $content, $isEmpty);
+    $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
         $this->assertEquals($esperado, $HTMLElement->getTagName());
     }
     /**
     * @dataProvider DP_test_getTagName
     */
     public function test_isEmptyElement($esperado, $tagName, $attributes, $content, $isEmpty){
-        $HTMLElement = new \DAW\HTMLElementsClass\HTMLElement($tagName, $attributes, $content, $isEmpty);
+        $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
         $this->assertEquals($isEmpty, $HTMLElement->isEmptyElement());
     }
 
@@ -154,8 +154,8 @@ final class HTMLElementClassTest extends TestCase{
     * @dataProvider DP_test_isSameTag
     */
     public function test_isSameTag($esperado, $tagName, $attributes, $content, $isEmpty){
-    $HTMLElement = new \DAW\HTMLElementsClass\HTMLElement($tagName, $attributes, $content, $isEmpty);
-    $HTMLElement2 = new \DAW\HTMLElementsClass\HTMLElement($esperado, $attributes, $content, $isEmpty);
+    $HTMLElement = new HTMLElement($tagName, $attributes, $content, $isEmpty);
+    $HTMLElement2 = new HTMLElement($esperado, $attributes, $content, $isEmpty);
         $this->assertTrue($HTMLElement->isSameTag($HTMLElement2));
     }
 }
